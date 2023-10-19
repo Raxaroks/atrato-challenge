@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "d62abcc6-54c4-4188-930a-076281028e9e",
+		"name": "atrato-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15525951"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "find all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_ENDPOINT}}/users",
+							"host": [
+								"{{API_ENDPOINT}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find one user by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_ENDPOINT}}/users/:id",
+							"host": [
+								"{{API_ENDPOINT}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "02d94e81-5f4f-4c29-8109-22c2167adb2f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update an user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pablo.chapete@atratopago.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_ENDPOINT}}/users/:id",
+							"host": [
+								"{{API_ENDPOINT}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "02d94e81-5f4f-4c29-8109-22c2167adb2f"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create an user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_ENDPOINT}}/users",
+							"host": [
+								"{{API_ENDPOINT}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete an user by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API_ENDPOINT}}/users/:id",
+							"host": [
+								"{{API_ENDPOINT}}"
+							],
+							"path": [
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "e4277acd-19b6-4a45-849b-27e0896fad53"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "cards",
+			"item": [
+				{
+					"name": "get random card",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_ENDPOINT}}/cards/random",
+							"host": [
+								"{{API_ENDPOINT}}"
+							],
+							"path": [
+								"cards",
+								"random"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "external requests",
+			"item": [
+				{
+					"name": "fetch random card",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://randommer.io/api/Card",
+							"protocol": "https",
+							"host": [
+								"randommer",
+								"io"
+							],
+							"path": [
+								"api",
+								"Card"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

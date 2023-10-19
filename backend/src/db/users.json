@@ -1,7 +1,7 @@
 [
   {
+    "email": "pablo.chapete@atratopago.com",
     "id": "02d94e81-5f4f-4c29-8109-22c2167adb2f",
-    "email": "pablo@atratopago.com",
     "phone": "+523333333333",
     "name": "Pablo",
     "middleName": null,
@@ -55,5 +55,24 @@
       "pin": "1309",
       "expiration": "2025-07-01T22:19:25.7460359+00:00"
     }
+  },
+  {
+    "id": "6511e3c4-c322-43a0-9fd4-8a9badba7340",
+    "cardInfo": {
+      "type": "AmericanExpress",
+      "cvv": "285",
+      "expiration": "2025-02-19T05:55:25.408405+00:00",
+      "number": "376158369014289",
+      "pin": "9989"
+    },
+    "email": "miguel.amzc@gmail.com",
+    "phone": "+523142597661",
+    "name": "Miguel",
+    "middleName": "Alberto",
+    "fLastName": "Amezcua",
+    "sLastName": "Palacios",
+    "birthday": "1993-02-18T00:00:00.000Z",
+    "status": "PENDING",
+    "assignedAnalyst": "David"
   }
 ]
