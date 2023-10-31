@@ -1,0 +1,23 @@
+
+.section-toolbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3rem;
+  justify-content: flex-end;
+
+  background-color: #fff;
+  border-bottom: var(--line);  
+}
+
+.toolbar__btn {
+  cursor: pointer;
+  font-size: 2rem;
+  color: #fff;
+  background-color: var(--color-primary);
+
+  align-self: stretch;
+  padding: 1rem 3rem;
+  margin-left: 3rem;
+  border: none;
+}

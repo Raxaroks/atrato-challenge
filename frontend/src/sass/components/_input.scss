@@ -1,0 +1,31 @@
+
+.form__group {
+
+}
+
+.input {
+  font-size: 1.6rem;
+  color: var(--color-grey-dark-2);
+  width: 100%;
+  max-width: 20rem;
+  height: 2.6rem;
+  padding: 1.2rem;
+  border-radius: 1.2rem;
+  border: 1.5px solid var(--color-grey-light-4);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0rem 0rem 2rem -1.8rem;
+
+  &:hover {
+    border: 2px solid var(--color-grey-light-4);
+    box-shadow: 0rem 0rem 2rem -1.7rem;
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &:focus {
+    border: 2px solid var(--color-grey-dark-2);
+  }
+}
