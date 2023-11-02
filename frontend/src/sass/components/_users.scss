@@ -1,9 +1,9 @@
 
 .user-card {
-  width: 59rem;
-  height: 28rem;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  width: 60rem;
+  min-height: 30rem;
+  padding: 2rem;
+  margin-bottom: 3.5rem;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;;
   border-radius: 0.5rem;
 
@@ -34,10 +34,92 @@
 
     h4 {
       font-size: 1.2rem;
+    }   
+  }
+
+  &__content {
+    display: flex;
+    margin-top: 1rem;
+    padding: 1rem 0rem 0rem 1rem;
+
+    &--details {
+      flex: 0 0 60%;
+      display: flex;
+      flex-direction: column;
+      border-right: 2px solid var(--color-grey-light-3);
+
+      &__field {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+
+        label {
+          color: var(--color-grey-dark-3);
+          font-size: 1.4rem;
+          font-weight: bold;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+        }
+      }     
     }
 
-    
+    &--extra {
+      background-color: var(--color-grey-light-3);
+      margin: 2rem;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      width: 100%;
+
+      label {
+        color: var(--color-grey-dark-4);
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      &__field {
+        font-size: 1.1rem;
+        margin-bottom: 1.3rem;
+        display: flex;
+        flex-direction: column;
+
+        &--card-info {
+
+        }
+      }
+    }
+  }
+
+  &__footer {
+    justify-content: flex-end;
+    padding-right: 2rem;
+
+    &--btn {
+      min-width: 9rem;
+      font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      line-height: 2rem;
+      text-transform: uppercase;
+      list-style: none;
+      background-color: rgba(51, 51, 51, 0.05);
+      border-radius: 8px;
+      border-width: 0;
+      color: #333333;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin: 0;
+      padding: 1rem 1.2rem;
+      transition: all 200ms;
+      vertical-align: baseline;
+      white-space: nowrap;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
   }
 }
-
-

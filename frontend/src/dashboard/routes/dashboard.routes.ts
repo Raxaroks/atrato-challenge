@@ -3,13 +3,13 @@ import { UserSection } from '../sections/Users';
 import userGroupIcon from '../../assets/icons/user-group.png';
 import { UsersCrudProvider, ProviderProps } from '../context/users/users.provider';
 
-type CustomRoute = Route & {
+type DashboardRoute = Route & {
   iconUrl?: string;
   Provider?: ({ children }: ProviderProps) => JSX.Element
 }
 
 
-export const dashboardRoutes: CustomRoute[] = [
+export const dashboardRoutes: DashboardRoute[] = [
   {
     to: 'users',
     path: '/dashboard/users',

@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { LoadingSection } from '../../components/LoadingSection';
 import { usersAPI } from '../services/users.service';
-import { CreditUserCardList } from '../components/users/CreditUserCardList';
 import { useUsersCrud } from '../hooks/useUsersCrud';
-
+import { CreditUserCard } from '../components/users/card/CreditUserCard';
+import { toast } from 'react-toastify';
 
 export const UserSection = () => {
-  const { retrieve } = useUsersCrud();
+  const { users, retrieve } = useUsersCrud();
 
   const [loading, setLoading] = useState(false);
   const [, setError] = useState<string | null>(null);
@@ -14,7 +14,11 @@ export const UserSection = () => {
   const fetchUsers = useMemo( () => async () => {
     try {
       setLoading(true);
-      const usrs = await usersAPI.findAll();
+      const usrs = await toast.promise( usersAPI.findAll(), {
+        pending: 'Fetching credit users...',
+        success: 'Users retrieved',
+        error: 'There was an error while requesting for the source'
+      } );
       retrieve(usrs);
       setLoading(false);
     } catch (error) {
@@ -22,7 +26,7 @@ export const UserSection = () => {
       setError(message);
       setLoading(false);
     }
-  }, [retrieve] );
+  }, [] );
 
   useEffect(() => {
     document.title = 'Dashboard | Users';
@@ -36,8 +40,9 @@ export const UserSection = () => {
         <div className='section-toolbar'>
           <button className='toolbar__btn'>Create</button>
         </div>
-
-        <CreditUserCardList />                
+        <ul>
+          { users.map( (item) => (<CreditUserCard key={ item.id } creditUser={ item } />) ) }
+        </ul>             
       </div>
     );
 }

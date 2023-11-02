@@ -16,10 +16,9 @@ export const Dashboard = () => {
 	const [username, setUsername] = useState<string | null>('');
 
 	useEffect(() => {
-		document.title = 'Dashboard';
 		if (auth.username) setUsername(auth.username);
 		else navigate('/');
-	}, [navigate]);
+	}, []);
 
 	return (
 		<div className='container'>
