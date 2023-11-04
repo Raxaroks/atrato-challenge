@@ -1,8 +1,4 @@
 
-.form__group {
-
-}
-
 .input {
   font-size: 1.6rem;
   color: var(--color-grey-dark-2);
@@ -17,7 +13,7 @@
   box-shadow: 0rem 0rem 2rem -1.8rem;
 
   &:hover {
-    border: 2px solid var(--color-grey-light-4);
+    border: 0.2rem solid var(--color-grey-light-4);
     box-shadow: 0rem 0rem 2rem -1.7rem;
   }
   
@@ -26,6 +22,7 @@
   }
 
   &:focus {
-    border: 2px solid var(--color-grey-dark-2);
+    border: 0.2rem solid var(--color-grey-dark-2);
   }
 }
+

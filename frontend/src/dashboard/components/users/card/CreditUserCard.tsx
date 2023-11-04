@@ -1,31 +1,40 @@
-import { CreditUser } from "../../../interfaces/user.interface";
+import { useState } from 'react';
+import { CreditUser, OnlyUser } from "../../../interfaces/user.interface";
+import { CrUpUserModal } from '../modals/CrUpUserModal';
 import { CardContent } from './CardContent';
 import { CardHeader } from './CardHeader';
+import { checkForNullValues } from '../../../../helpers/object-functions';
 
 interface CreditUserCardProps {
-  creditUser: CreditUser
+  creditUser: CreditUser;
+  crudDependency?: {
+    dependency: number,
+    setDependency: React.Dispatch<React.SetStateAction<number>>,
+  }
 }
 
-export const CreditUserCard = ({ creditUser }: CreditUserCardProps) => {
-  const { id, email, name, middleName, fLastName, sLastName, 
-    phone, assignedAnalyst, status, birthday, cardInfo } = creditUser;
+export const CreditUserCard = ({ creditUser, crudDependency }: CreditUserCardProps) => {
+  const { id, status, cardInfo } = creditUser;
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className='user-card'>
       <CardHeader id={ id! } status={ status } 
-        userInfo={{ name, middleName, fLastName, sLastName }} />
+        userInfo={creditUser} />
 
       <CardContent cardInfo={ cardInfo }
-        userInfo={{
-          assignedAnalyst, birthday, email, fLastName, middleName, name, phone, sLastName,
-        }} />
+        userInfo={creditUser} />
 
       <div className="user-card__footer mt-0 d-flex">
-        <button className='user-card__footer--btn'>
+        <button type='button' className='user-card__footer--btn'
+          onClick={ () => setOpenModal(true) }>
           Edit
           <i className="fa-solid fa-pen"></i>
         </button>
       </div>
+
+      { (openModal && crudDependency) && <CrUpUserModal mode='update' crudDependency={ crudDependency }
+                            setIsOpen={ setOpenModal } toUpdate={ checkForNullValues<OnlyUser>(creditUser) }/> }
     </div>
   )
 }

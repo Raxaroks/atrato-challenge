@@ -4,12 +4,13 @@ import { CreditUser } from '../interfaces/user.interface';
 
 
 type customHookProps = Omit<UsersCrudContextProps, 'state'> & {
-  users: CreditUser[]
+  users: CreditUser[];
+  selected: string[];
 }
 
 export const useUsersCrud = (): customHookProps => {
-  const { state, retrieve } = useContext(UsersCrudContext);
-  const { users } = state;
+  const { state, retrieve, remove, select, deselect, resetSelected } = useContext(UsersCrudContext);
+  const { users, selected } = state;
 
-  return { users, retrieve }
+  return { users, selected, retrieve, remove, select, deselect, resetSelected }
 }

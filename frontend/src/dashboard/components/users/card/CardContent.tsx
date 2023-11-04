@@ -1,6 +1,7 @@
 import { card } from 'creditcards';
 import { parsePhoneNumber } from 'libphonenumber-js';
 import { Card } from '../../../interfaces/card.interface';
+import { formatDate } from '../../../../helpers/date-functions';
 
 
 export interface CardContentProps {
@@ -24,21 +25,6 @@ export const CardContent = ({ cardInfo, userInfo }: CardContentProps) => {
     return `${name} ${middleName ? middleName : ''} ${ fLastName } ${ sLastName }`
   }
 
-  const formatFullDate = (birthday: Date): string => {
-    const date = new Date(birthday);
-    const day = date.getUTCDate();
-    const month = date.toLocaleString('en-US', { month: 'long' });
-    const year = date.getFullYear();
-    return `${month} / ${day} / ${year}`;
-  }
-
-  const formatExpDate = (expiration: string): string => {
-    const date = new Date(expiration);
-    const month = date.getUTCDate().toString();
-    const year = date.getUTCFullYear().toString().substring(-2);
-    return `${year} / ${month}`;
-  }
-
   const parsePhone = (phone: string) => {
     const object = parsePhoneNumber(phone);
     return object.formatInternational();
@@ -57,7 +43,7 @@ export const CardContent = ({ cardInfo, userInfo }: CardContentProps) => {
           </div>
           <div className='user-card__content--details__field' >
             <label>Birthdate</label>
-            { formatFullDate(birthday) }
+            { formatDate('DD/MMMM/YYYY', birthday) }
           </div>
           <div className='user-card__content--details__field'>
             <label>Phone number</label>
@@ -90,7 +76,7 @@ export const CardContent = ({ cardInfo, userInfo }: CardContentProps) => {
             </div>  
             <div className="user-card__content--extra__field">
               <label>Exp</label>
-              { formatExpDate(cardInfo.expiration) }
+              { formatDate('MM/YY', cardInfo.expiration) }
             </div>  
           </div>       
         </div>

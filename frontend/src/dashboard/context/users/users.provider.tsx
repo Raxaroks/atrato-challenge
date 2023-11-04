@@ -13,6 +13,10 @@ const INITIAL_STATE: UsersCrudState = {
 export const UsersCrudProvider = ({ children }: ProviderProps) => {
   const [state, dispatch] = useReducer(usersCrudReducer, INITIAL_STATE);
 
+  const resetSelected = () => {
+    dispatch({ type: 'reset-selected' });
+  };
+
   const retrieve = (fetched: CreditUser[]) => {
     dispatch({
       type: 'retrieve',
@@ -20,9 +24,24 @@ export const UsersCrudProvider = ({ children }: ProviderProps) => {
     });
   };
 
+  const remove = (id: string) => {
+    dispatch({
+      type: 'remove',
+      payload: id
+    });
+  }
+
+  const select = (id: string) => {
+    dispatch({ type: 'select', payload: id });
+  };
+
+  const deselect = (id: string) => {
+    dispatch({ type: 'deselect', payload: id });
+  };
+
   return (
     <>
-      <UsersCrudContext.Provider value={{ state, retrieve }}>
+      <UsersCrudContext.Provider value={{ state, retrieve, remove, select, deselect, resetSelected }}>
         { children }
       </UsersCrudContext.Provider>
     </>

@@ -13,3 +13,13 @@ export interface CreditUser {
   assignedAnalyst: string;
   cardInfo: Card;
 }
+
+export type OnlyUser = Omit<CreditUser, 'cardInfo' | 'birthday'> & {
+  birthday: Date | string
+};
+
+export enum UserStatus {
+  pending = 'PENDING',
+  inProgress = 'IN_PROGRESS',
+  completed = 'COMPLETED'
+}

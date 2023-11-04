@@ -12,12 +12,17 @@
 
 .toolbar__btn {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #fff;
-  background-color: var(--color-primary);
-
   align-self: stretch;
   padding: 1rem 3rem;
-  margin-left: 3rem;
   border: none;
+
+  &--create {
+    background-color: var(--color-primary);
+  }
+
+  &--delete {
+    background-color: #c00000;
+  }
 }

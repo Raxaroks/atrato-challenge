@@ -6,6 +6,7 @@ import { User } from "./entities/user.entity";
 import { AppConfiguration } from 'src/config';
 import { CardsService } from 'src/cards/cards.service';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { formatDate } from 'src/common/helpers/date-functions';
 
 @Injectable()
 export class UsersService {
@@ -34,13 +35,14 @@ export class UsersService {
     fs.writeFileSync(this.db, JSON.stringify(data));
   }
 
-  async create(createUserDto: CreateUserDto) {
+  async create({ birthday, ...rest }: CreateUserDto) {
     const id = uuid();
     const card = await this.cardsService.fetchRandom();
     const newUser: User = { 
       id, 
+      birthday: birthday.toISOString(),
       cardInfo: card, 
-      ...createUserDto 
+      ...rest 
     };
 
     this.updateCache();
@@ -67,13 +69,13 @@ export class UsersService {
     return found;
   }
 
-  update(id: string, updateUserDto: UpdateUserDto) {
+  update(id: string, { birthday, ...rest }: UpdateUserDto) {
     this.updateCache();
     const found = this.cache.find( usr => usr.id === id );
     if (!found) throw new NotFoundException(`There is not an user with the given ID: [${id}]`);  
     
     const index = this.cache.indexOf(found);
-    const updated = { ...found, ...updateUserDto };
+    const updated = { ...found, birthday: birthday.toISOString(), ...rest };
     this.cache[index] = updated;
     this.updateDB(this.cache);  
     return {

@@ -8,7 +8,7 @@ export class User {
   middleName?: string;
   fLastName: string;
   sLastName: string;
-  birthday: Date;
+  birthday: string; // yyyy-dd-mm
   status: string;
   assignedAnalyst: string;
   cardInfo: Card;
