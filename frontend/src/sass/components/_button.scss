@@ -1,4 +1,6 @@
 
+.disabled { cursor: not-allowed !important; }
+
 .btn {
   background: linear-gradient(to bottom right, var(--color-secondary), var(--color-tertiary));
   border: 0;

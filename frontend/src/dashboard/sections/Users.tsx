@@ -25,7 +25,6 @@ export const UserSection = () => {
         success: 'Users retrieved',
         error: 'There was an error while requesting for the source'
       } );
-      console.log(usrs)
       retrieve(usrs);
       setLoading(false);
     } catch (error) {

@@ -48,7 +48,7 @@ export const CardHeader = ({ id, status, userInfo }: CardHeaderProps) => {
 				<h2>{buildFullName()}</h2>
 				<h4>ID: {id} </h4>
 			</div>
-			<div className='d-flex'>
+			<div className='user-card__header--actions d-flex'>
         <div className='user-card__header--status'>
           { convertStatus(status) }
         </div>

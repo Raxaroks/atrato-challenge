@@ -7,11 +7,36 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;;
   border-radius: 0.5rem;
 
+  @media only screen and (max-width: $breakpoint-small) {
+    width: 40rem;
+  }
+
+  @media only screen and (max-width: $breakpoint-smallest) {
+    width: 35rem;
+  }
+
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0rem 2rem 0rem 1rem;
+
+    @media only screen and (max-width: $breakpoint-smallest) {
+      padding: 0rem 1rem 0rem 1rem;
+    }
+
+    &--actions {
+      @media only screen and (max-width: $breakpoint-smallest) {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      input {
+        @media only screen and (max-width: $breakpoint-smallest) {
+          margin-top: 1rem;
+        }
+      }
+    }
 
     &--status {
       font-size: 1.4rem;
@@ -25,6 +50,12 @@
       border-radius: 1rem;
       display: flex;
       align-items: center;
+
+      @media only screen and (max-width: $breakpoint-smallest) {
+        font-size: 1rem;
+        text-align: center;
+        padding: 1rem 2rem;
+      }
     }
 
     h2 {
@@ -42,11 +73,22 @@
     margin-top: 1rem;
     padding: 1rem 0rem 0rem 1rem;
 
+    @media only screen and (max-width: $breakpoint-smallest) {
+      margin-top: 1.5rem;
+      padding: 1rem;
+    }
+
     &--details {
       flex: 0 0 60%;
       display: flex;
       flex-direction: column;
       border-right: 2px solid var(--color-grey-light-3);
+
+      @media only screen and (max-width: $breakpoint-smallest) {
+        flex: auto;
+        width: 100%;
+        border: none;
+      }
 
       &__field {
         font-size: 1.2rem;
@@ -61,7 +103,7 @@
           letter-spacing: 1px;
           text-transform: uppercase;
         }
-      }     
+      }   
     }
 
     &--extra {
@@ -84,10 +126,10 @@
         margin-bottom: 1.3rem;
         display: flex;
         flex-direction: column;
+      }
 
-        &--card-info {
-
-        }
+      @media only screen and (max-width: $breakpoint-smallest) {
+        display: none;
       }
     }
   }
@@ -95,6 +137,10 @@
   &__footer {
     justify-content: flex-end;
     padding-right: 2rem;
+
+    @media only screen and (max-width: $breakpoint-smallest) {
+      padding-right: 1rem;
+    }
 
     &--btn {
       min-width: 9rem;
