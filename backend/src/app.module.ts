@@ -18,7 +18,6 @@ const getStaticPath = (env: string): string => {
     ConfigModule.forRoot(configModuleOptions),
     ServeStaticModule.forRoot({ 
       rootPath: getStaticPath( AppConfiguration().environment ),      
-      exclude: ['/api/v1/(.*)']
     }),
     CommonModule,
     CardsModule,
