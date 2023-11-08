@@ -6,10 +6,15 @@
   "scripts": {
     "dev": "vite",
     "start:dev": "npm-run-all --parallel dev watch:sass",
-    "build": "tsc && vite build",
+    "build": "npm-run-all build:css build:app",
+    "build:app": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "watch:sass": "sass -w src/sass/main.scss src/css/style.css"
+    "watch:sass": "sass -w src/sass/main.scss src/css/style.css",
+    "compile:sass": "sass src/sass/main.scss src/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' src/css/style.comp.css -o src/css/style.prefix.css",
+    "compress:css": "sass src/css/style.prefix.css src/css/style.css --style=compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "dependencies": {
     "axios": "^1.6.0",

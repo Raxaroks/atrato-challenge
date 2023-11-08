@@ -188,6 +188,20 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "serve static content",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{CLIENT_ENDPOINT}}",
+					"host": [
+						"{{CLIENT_ENDPOINT}}"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

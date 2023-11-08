@@ -3,7 +3,6 @@ import { appRoutes } from './app.routes';
 import { Suspense } from 'react';
 import { Authenticator } from '../auth';
 
-
 export const auth = new Authenticator();
 
 export const AppRouter = () => {
