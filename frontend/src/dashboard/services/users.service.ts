@@ -15,6 +15,7 @@ class UsersService {
   private http: AxiosInstance;
 
   constructor() {
+    console.log( AppConfig() );
     this.baseUrl = `${ AppConfig().endpoints.api }/users`;
     this.http = axiosInstance;
   }
