@@ -1,9 +1,12 @@
 # environment files
-.env
+.env*
 
 # compiled output
 /dist
 /node_modules
+
+# static folder
+/public
 
 # Logs
 logs

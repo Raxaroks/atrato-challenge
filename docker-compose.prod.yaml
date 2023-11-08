@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  credit-dashboard-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: credit-dashboard-docker
+    container_name: credit-dashboard-app
+    restart: always
+    ports: 
+      - "${PORT}:${PORT}"
+    environment:
+      - PORT=${PORT}
+      - USERS_DB_URL=${USERS_DB_URL}
+      - RANDOMMER_CARD_API_ENDPOINT=${RANDOMMER_CARD_API_ENDPOINT}
+      - X_API_KEY=${X_API_KEY}
